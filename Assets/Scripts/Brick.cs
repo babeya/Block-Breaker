@@ -1,47 +1,58 @@
 ﻿using UnityEngine;
 
-public class Brick : MonoBehaviour {
-    
-    public int maxHits;
+public class Brick : MonoBehaviour
+{
+
     public Sprite[] hitSprites;
 
     int timesHit;
+
     LevelManager levelManager;
-	
+
     // Use this for initialization
-	void Start () 
+    void Start()
     {
         timesHit = 0;
         levelManager = FindObjectOfType<LevelManager>();
     }
-	
-	// Update is called once per frame
-	void Update () 
-    {
-        
-    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        timesHit++;
+        bool isBreakable = tag == "Breakable";
 
-        if (timesHit >= maxHits) 
-        {
-            Destroy(gameObject);
-        }
-        else {
-            LoadSprite();
+        if (isBreakable) {
+            HandleHits();
         }
     }
 
-    void LoadSprite() {
+    void HandleHits() 
+    {
+		int maxHits = hitSprites.Length + 1;
+
+		timesHit++;
+		if (timesHit >= maxHits)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			LoadSprite();
+		}
+    }
+
+    void LoadSprite()
+    {
         int spriteIndex = timesHit - 1;
 
-        GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+        if (hitSprites[spriteIndex])
+        {
+            GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+        }
+
     }
 
     // TODO : remove this methods when we can actually win
-    void SimulateWin() 
+    void SimulateWin()
     {
         levelManager.LoadNextLevel();
     }
