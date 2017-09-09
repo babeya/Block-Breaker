@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour {
 
-    static MusicPlayer instance = null;
+    static MusicPlayer instance;
 
-    private void Awake()
+    void Awake()
     {
 		if (instance)
 		{

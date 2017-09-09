@@ -2,14 +2,15 @@
 
 public class Ball : MonoBehaviour 
 {
-    public Paddle paddle;
-
+    Paddle paddle;
     Vector3 paddleToBallVector;
+
     bool hasStarted = false;
 
 	// Use this for initialization
 	void Start () 
     {
+        paddle = FindObjectOfType<Paddle>();
         paddleToBallVector = transform.position - paddle.transform.position;
 	}
 	
