@@ -2,42 +2,52 @@
 
 public class Brick : MonoBehaviour
 {
-
+    public static int breakableCount;
     public Sprite[] hitSprites;
 
+    bool isBreakable;
     int timesHit;
-
     LevelManager levelManager;
 
     // Use this for initialization
     void Start()
     {
+        isBreakable = tag == "Breakable";
+        // Keep tracks of breakable bricks
+        if (isBreakable)
+        {
+            breakableCount++;
+            print(breakableCount);
+        }
+
         timesHit = 0;
         levelManager = FindObjectOfType<LevelManager>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        bool isBreakable = tag == "Breakable";
-
-        if (isBreakable) {
+        if (isBreakable)
+        {
             HandleHits();
         }
     }
 
-    void HandleHits() 
+    void HandleHits()
     {
-		int maxHits = hitSprites.Length + 1;
+        int maxHits = hitSprites.Length + 1;
 
-		timesHit++;
-		if (timesHit >= maxHits)
-		{
-			Destroy(gameObject);
-		}
-		else
-		{
-			LoadSprite();
-		}
+        timesHit++;
+        if (timesHit >= maxHits)
+        {
+            breakableCount--;
+            levelManager.BrickDestroyed();
+
+            Destroy(gameObject);
+        }
+        else
+        {
+            LoadSprite();
+        }
     }
 
     void LoadSprite()
@@ -48,12 +58,5 @@ public class Brick : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
         }
-
-    }
-
-    // TODO : remove this methods when we can actually win
-    void SimulateWin()
-    {
-        levelManager.LoadNextLevel();
     }
 }

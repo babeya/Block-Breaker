@@ -19,4 +19,12 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Ne me quittes pas ...");
     }
 	
+    public void BrickDestroyed() 
+    {
+        if (Brick.breakableCount <= 0) 
+        {
+            LoadNextLevel();
+        }
+    }
+        
 }

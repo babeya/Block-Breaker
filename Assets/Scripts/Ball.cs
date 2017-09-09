@@ -30,4 +30,12 @@ public class Ball : MonoBehaviour
             body.velocity = new Vector2(1f, 10f);
         }
 	}
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (hasStarted) {
+            print("yiy");
+            GetComponent<AudioSource>().Play();    
+        }
+    }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-public class LoseCollider : MonoBehaviour {
-
+public class LoseCollider : MonoBehaviour
+{
     LevelManager levelManager;
 
     void Start()
@@ -10,8 +10,8 @@ public class LoseCollider : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D trigger)
-	{
-		levelManager.LoadLevel("Lose");
-	}
+    {
+        levelManager.LoadLevel("Lose");
+    }
 
 }
