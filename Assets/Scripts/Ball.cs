@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
             hasStarted = !hasStarted;
             Rigidbody2D body = GetComponent<Rigidbody2D>();
 
-            body.velocity = new Vector2(2f, 10f);
+            body.velocity = new Vector2(1f, 10f);
         }
 	}
 }
