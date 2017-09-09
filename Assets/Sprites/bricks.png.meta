@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: bc77c59e3acee4548a0f7b6eb529e911
-timeCreated: 1504980233
+guid: 91696239803b0458b9baa35c950653f0
+timeCreated: 1504994170
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: 1 hit
-    21300002: right
-    21300004: left
-    21300006: 2 hit
-    21300008: 3 hit
+    21300000: 0 hit
+    21300002: 1 hit
+    21300004: 2 hit
+    21300006: 3 hit
+    21300008: 4 hit
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -88,11 +88,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1 hit
+      name: 0 hit
       rect:
         serializedVersion: 2
         x: 0
-        y: 126
+        y: 169
         width: 128
         height: 41
       alignment: 0
@@ -102,26 +102,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: right
+      name: 1 hit
       rect:
         serializedVersion: 2
         x: 0
-        y: 84
-        width: 64
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: left
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 84
-        width: 63
+        y: 127
+        width: 128
         height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -134,9 +120,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 42
+        y: 85
         width: 128
-        height: 41
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,8 +134,22 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 43
         width: 128
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 4 hit
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 127
         height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
