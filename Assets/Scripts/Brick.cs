@@ -3,6 +3,7 @@
 public class Brick : MonoBehaviour {
     
     public int maxHits;
+    public Sprite[] hitSprites;
 
     int timesHit;
     LevelManager levelManager;
@@ -28,6 +29,15 @@ public class Brick : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        else {
+            LoadSprite();
+        }
+    }
+
+    void LoadSprite() {
+        int spriteIndex = timesHit - 1;
+
+        GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
     }
 
     // TODO : remove this methods when we can actually win
