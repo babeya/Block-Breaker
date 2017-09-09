@@ -5,10 +5,12 @@ public class Brick : MonoBehaviour {
     public int maxHits;
 
     int timesHit;
-
-	// Use this for initialization
+    LevelManager levelManager;
+	
+    // Use this for initialization
 	void Start () {
         timesHit = 0;
+        levelManager = FindObjectOfType<LevelManager>();
 	}
 	
 	// Update is called once per frame
@@ -18,10 +20,11 @@ public class Brick : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision)
     {
         timesHit++;
-        print(timesHit);
+        SimulateWin();
+    }
 
-        if (timesHit >= maxHits) {
-            Destroy(this);
-        }
+    // TODO : remove this methods when we can actually win
+    void SimulateWin() {
+        levelManager.LoadNextLevel();
     }
 }
