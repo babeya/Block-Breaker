@@ -33,12 +33,6 @@ public class Brick : MonoBehaviour
         }
     }
 
-	void OnDestroy()
-	{
-		breakableCount--;
-        print(breakableCount);
-	}
-
     void HandleHits()
     {
         int maxHits = hitSprites.Length + 1;
@@ -46,8 +40,9 @@ public class Brick : MonoBehaviour
         timesHit++;
         if (timesHit >= maxHits)
         {
-            Destroy(gameObject);
+            breakableCount--;
             levelManager.BrickDestroyed();
+            Destroy(gameObject);
         }
         else
         {
